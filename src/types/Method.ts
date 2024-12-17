@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-shadow
 enum Method {
   UpdateNotes = 'Update Notes',
   ObviousSingles = 'Obvious Singles',
