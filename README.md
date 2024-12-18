@@ -24,4 +24,4 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### GitHub pages
-git subtree push --prefix dist origin gh-pages
+git add -f dist
