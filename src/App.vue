@@ -72,7 +72,7 @@ html {
   vertical-align: top;
   white-space: nowrap;
 
-  &:hover:not(:disabled) {
+  &:hover {
     background-color: var(--color-accent-60);
     box-shadow: 0 0.313rem 1.875rem rgba(0, 0, 0, 0.05), 0 0.063rem 0.25rem rgba(0, 0, 0, 0.05);
     transform: translateY(0);
