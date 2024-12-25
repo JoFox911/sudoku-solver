@@ -16,22 +16,28 @@ export default class App extends Vue { }
 
 <style>
 :root {
-  --accent: #0217d2;
-  --primary: black;
-  --secondary: gray;
-  --success-light: #ccf6de;
-  --success: #66e59b;
-  --warning-light: #fef3ec;
-  --warning: #faa473;
-  --warning-deep: #ee8f00;
+  --color-black: black;
+  --color-dark-gray: #2c3e50;
+  --color-gray: gray;
+  --color-white: white;
+  --color-bg-light: #e7eef9;
 
-  --button: #2f80ed;
-  --button-hover: #1366d6;
-  --bg-light: rgb(231 238 249);
+  --color-success-30: #ccf6de;
 
-  --select-border: gray;
-  --select-focus: #0217d2;
-  --select-arrow: var(--select-border);
+  --color-warning-10: #fef3ec;
+  --color-warning-60: #faa473;
+  --color-warning-100: #ee8f00;
+
+  --color-accent-30: #2f80ed;
+  --color-accent-60: #1366d6;
+  --color-accent-100: #0217d2;
+
+  --base-font-size: 16px;
+  --base-line-height: 1.5;
+}
+
+html {
+  font-size: var(--base-font-size);
 }
 
 #app {
@@ -39,7 +45,7 @@ export default class App extends Vue { }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: var(--color-dark-gray);
 }
 </style>
 
@@ -47,80 +53,66 @@ export default class App extends Vue { }
 .button {
   appearance: none;
   backface-visibility: hidden;
-  background-color: var(--button);
-  border-radius: 10px;
-  border-style: none;
-  box-shadow: none;
+  background-color: var(--color-accent-30);
+  border: none;
+  border-radius: 0.625rem;
   box-sizing: border-box;
-  color: #fff;
+  color: var(--color-white);
   cursor: pointer;
   display: inline-block;
-  font-family: Arial;
-  font-size: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem;
   font-weight: 500;
-  height: 40px;
-  letter-spacing: normal;
-  outline: none;
-  overflow: hidden;
-  padding: 10px 30px;
-  position: relative;
+  height: 2.5rem;
+  padding: 0.625rem 1.875rem;
   text-align: center;
   text-decoration: none;
-  transform: translate3d(0, 0, 0);
-  transition: all .3s;
+  transition: all 0.3s ease;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
   vertical-align: top;
   white-space: nowrap;
 
   &:hover:not(:disabled) {
-    background-color: var(--button-hover);
-    box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
-    opacity: 1;
+    background-color: var(--color-accent-60);
+    box-shadow: 0 0.313rem 1.875rem rgba(0, 0, 0, 0.05), 0 0.063rem 0.25rem rgba(0, 0, 0, 0.05);
     transform: translateY(0);
-    transition-duration: .35s;
+    transition-duration: 0.35s;
 
     &.warning {
-      background-color: var(--warning-deep);
+      background-color: var(--color-warning-100);
     }
   }
 
-  &:hover:after {
-    opacity: .5;
-  }
-
   &:active {
-    box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
-    transform: translateY(2px);
-    transition-duration: .35s;
-  }
-
-  &:active:after {
-    opacity: 1;
+    box-shadow: 0 0.188rem 0.375rem rgba(0, 0, 0, 0.1), 0 0 0.625rem rgba(0, 0, 0, 0.1), 0 0.063rem 0.25rem -0.063rem rgba(0, 0, 0, 0.1);
+    transform: translateY(0.125rem);
+    transition-duration: 0.35s;
   }
 
   &.warning {
-    background-color: var(--warning);
+    background-color: var(--color-warning-60);
   }
 
   &:disabled,
   &[disabled] {
-    background-color: var(--secondary);
-    cursor: unset;
+    background-color: var(--color-gray);
+    cursor: not-allowed;
   }
 }
 
 .select {
-  font-family: Arial;
-  font-size: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem;
   font-weight: 500;
-  height: 40px;
-  border: 1px solid var(--select-border);
-  border-radius: 0.25em;
+  height: 2.5rem;
   padding: 0.25em 0.5em;
+  border: 0.063rem solid var(--color-gray);
+  border-radius: 0.25em;
+  background-color: var(--color-white);
   cursor: pointer;
-  background-color: #fff;
-  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+  &:focus {
+    outline: none;
+  }
 }
 </style>

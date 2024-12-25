@@ -88,16 +88,16 @@ watch(props, () => {
 .sudoku-board {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 5px #888;
+  box-shadow: 0 0 5px var(--color-gray);
   width: fit-content;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--color-black);
 
   .board-row:not(:nth-child(3n)) {
-    border-bottom: 1px solid var(--secondary);
+    border-bottom: 1px solid var(--color-gray);
   }
 
   .board-row:nth-child(3n):not(:last-child) {
-    border-bottom: 2px solid var(--primary);
+    border-bottom: 2px solid var(--color-black);
   }
 }
 
@@ -107,16 +107,16 @@ watch(props, () => {
   flex-direction: row;
 
   .board-cell:not(:nth-child(3n)) {
-    border-right: 1px solid var(--secondary);
+    border-right: 1px solid var(--color-gray);
   }
 
   .board-cell:nth-child(3n):not(:last-child) {
-    border-right: 2px solid var(--primary);
+    border-right: 2px solid var(--color-black);
   }
 }
 
 .board-cell {
-  color: var(--primary);
+  color: var(--color-black);
   font-family: Arial
 }
 
@@ -141,15 +141,15 @@ watch(props, () => {
   }
 
   &.active {
-    background-color: var(--bg-light);
+    background-color: var(--color-bg-light);
   }
 
   &.solved-cell {
-    color: var(--accent);
+    color: var(--color-accent-100);
   }
 
   &.with-options {
-    color: var(--secondary);
+    color: var(--color-gray);
     font-size: 15px;
   }
 

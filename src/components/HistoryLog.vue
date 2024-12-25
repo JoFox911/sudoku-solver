@@ -44,7 +44,7 @@ const revertedArray = computed(() => props.changeLog.slice().reverse())
   margin: 0;
   padding: 8px;
   top: 0;
-  background-color: var(--bg-light);
+  background-color: var(--color-bg-light);
 }
 
 .elements-container {
@@ -67,11 +67,11 @@ const revertedArray = computed(() => props.changeLog.slice().reverse())
   width: 100%;
 
   &.remove {
-    background-color: var(--warning-light);
+    background-color: var(--color-warning-10);
   }
 
   &.update {
-    background-color: var(--success-light);
+    background-color: var(--color-success-30);
   }
 }
 
@@ -81,6 +81,6 @@ const revertedArray = computed(() => props.changeLog.slice().reverse())
 
 .line-extra {
   font-size: 12px;
-  color: var(--secondary);
+  color: var(--color-gray);
 }
 </style>

@@ -226,11 +226,11 @@ watchEffect(() => {
         height: 20px;
 
         .done {
-          color: var(--warning);
+          color: var(--color-warning-10);
         }
 
         .updated {
-          color: var(--button);
+          color: var(--color-accent-30);
         }
       }
     }
