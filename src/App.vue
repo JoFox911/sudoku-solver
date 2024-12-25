@@ -11,7 +11,7 @@ import MainComponent from './components/MainComponent.vue'
     MainComponent,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue { }
 </script>
 
 <style>
@@ -19,15 +19,19 @@ export default class App extends Vue {}
   --accent: #0217d2;
   --primary: black;
   --secondary: gray;
-  --success: #66e59b;
   --success-light: #ccf6de;
-  --warning: #faa473;
+  --success: #66e59b;
   --warning-light: #fef3ec;
+  --warning: #faa473;
+  --warning-deep: #ee8f00;
 
   --button: #2f80ed;
   --button-hover: #1366d6;
   --bg-light: rgb(231 238 249);
 
+  --select-border: gray;
+  --select-focus: #0217d2;
+  --select-arrow: var(--select-border);
 }
 
 #app {
@@ -37,7 +41,9 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
 }
+</style>
 
+<style lang="scss">
 .button {
   appearance: none;
   backface-visibility: hidden;
@@ -49,15 +55,14 @@ export default class App extends Vue {}
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
-  font-size: 15px;
+  font-family: Arial;
+  font-size: 20px;
   font-weight: 500;
   height: 40px;
   letter-spacing: normal;
-  line-height: 1.5;
   outline: none;
   overflow: hidden;
-  padding: 9px 30px;
+  padding: 10px 30px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -68,37 +73,54 @@ export default class App extends Vue {}
   touch-action: manipulation;
   vertical-align: top;
   white-space: nowrap;
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-hover);
+    box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+
+    &.warning {
+      background-color: var(--warning-deep);
+    }
+  }
+
+  &:hover:after {
+    opacity: .5;
+  }
+
+  &:active {
+    box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+    transform: translateY(2px);
+    transition-duration: .35s;
+  }
+
+  &:active:after {
+    opacity: 1;
+  }
+
+  &.warning {
+    background-color: var(--warning);
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: var(--secondary);
+    cursor: unset;
+  }
 }
 
-.button:hover:not(:disabled) {
-  background-color: var(--button-hover);
-  box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
-  opacity: 1;
-  transform: translateY(0);
-  transition-duration: .35s;
-}
-
-.button:hover:after {
-  opacity: .5;
-}
-
-.button:active {
-  box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
-  transform: translateY(2px);
-  transition-duration: .35s;
-}
-
-.button:active:after {
-  opacity: 1;
-}
-
-.button.warning {
-  background-color: var(--warning);
-}
-
-button:disabled,
-button[disabled]{
-  background-color: var(--secondary);
-  cursor: unset;
+.select {
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: 500;
+  height: 40px;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 }
 </style>

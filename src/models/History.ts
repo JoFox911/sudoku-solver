@@ -48,6 +48,11 @@ class History {
     }
     this.currentChangeLog.value = this.changeLogState
   }
+
+  clean() {
+    this.stack = []
+    this.currentChangeLog.value = []
+  }
 }
 
 export default History

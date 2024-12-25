@@ -29,6 +29,7 @@ export interface SudokuSolverComposable {
   executeMethodsSequentially(): ExecutedMethodsData,
   useMethod(methodKey: Method): void
   initSudokuSolver(fieldData: Array<Array<string>>): void
+  cleanState(): void
   backToLastState(): void
 }
 
@@ -665,7 +666,15 @@ export function useSudokuSolverComposable(): SudokuSolverComposable {
     }
   }
 
+  function cleanState() {
+    historyLog.clean()
+    state.isSolved = false
+    state.field = []
+  }
+
   function initSudokuSolver(fieldData: Array<Array<string>>) {
+    cleanState()
+
     fieldData.forEach((fieldRow, rowIdx: number) => {
       const row: Array<Cell> = []
 
@@ -685,6 +694,7 @@ export function useSudokuSolverComposable(): SudokuSolverComposable {
     executeMethodsSequentially,
     initSudokuSolver,
     backToLastState,
+    cleanState,
     changeLog: historyLog.changeLog,
     ...toRefs(state),
   }

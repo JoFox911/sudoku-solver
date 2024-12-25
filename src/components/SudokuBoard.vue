@@ -159,5 +159,16 @@ watch(props, () => {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }
+
+  @media (max-width: 550px) {
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    padding: 2px;
+
+    &.with-options {
+      font-size: 9px;
+    }
+  }
 }
 </style>
