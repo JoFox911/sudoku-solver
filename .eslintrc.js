@@ -18,5 +18,8 @@ module.exports = {
     'max-len': ['error', { code: 150 }],
     'vuejs-accessibility/form-control-has-label': 'off',
     'vuejs-accessibility/label-has-for': 'off',
+    'no-use-before-define': 'off',
+    "comma-dangle": 'off',
+    'no-undef': 'off'
   },
 }
