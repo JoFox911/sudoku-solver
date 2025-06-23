@@ -1,3 +1,5 @@
+GH Pages https://jofox911.github.io/sudoku-solver/dist/
+
 # sudoku-solver
 
 ## Project setup
